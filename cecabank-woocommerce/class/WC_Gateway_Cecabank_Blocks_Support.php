@@ -3,6 +3,7 @@ use Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodTyp
 
 final class WC_Gateway_Cecabank_Blocks_Support extends AbstractPaymentMethodType {
 	protected $name = 'cecabank_gateway';
+	protected $settings;
 
 	public function initialize() {
 		$this->settings = get_option( 'woocommerce_cecabank_gateway_settings', [] );
@@ -10,7 +11,7 @@ final class WC_Gateway_Cecabank_Blocks_Support extends AbstractPaymentMethodType
 
 	public function get_payment_method_script_handles() {
 		$asset_path   = WC_GATEWAY_CECABANK_PATH . '/build/zru-blocks/index.asset.php';
-		$version      = '0.3.3';
+		$version      = '0.3.4';
 		$dependencies = [];
 		if ( file_exists( $asset_path ) ) {
 			$asset        = require $asset_path;
